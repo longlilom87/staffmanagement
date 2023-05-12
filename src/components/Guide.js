@@ -17,10 +17,10 @@ export default function Guide(){
         
       ];
     return <>
-    <h1> Guide </h1>
+    <h1> Frequently Asked Questions </h1>
+    <br></br>
     <div className="bigContainer">
         {questions.map((question)=> <Question className="item" item={question}/>)}
-        
     </div>
     </>
 }

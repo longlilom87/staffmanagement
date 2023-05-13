@@ -2,7 +2,7 @@ import { useState } from "react"
 export default function Question(props){
     const {item}= props
     const [isOpen, setOpen] = useState(false);
-    console.log(item)
+    // console.log(item)
     return <>
     <div className="question">
     <h3 style={

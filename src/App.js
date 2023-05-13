@@ -1,5 +1,6 @@
 import {BrowserRouter,Routes, Route, Link} from 'react-router-dom'
 import Guide from './components/Guide'
+import Home from './components/Home'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -24,6 +25,7 @@ function App() {
   </div>
 </nav>
 <Routes>
+        <Route path="/" element={<Home/>}></Route>
         <Route path="guide" element={<Guide/>}></Route>
       </Routes>
       </BrowserRouter>

@@ -1,20 +1,14 @@
 import { useState } from "react"
+import {Accordion} from "react-bootstrap"
 export default function Question(props){
     const {item}= props
     const [isOpen, setOpen] = useState(false);
     // console.log(item)
     return <>
-    <div className="question">
-    <h3 style={
-        {
-            display: 'flex',
-            justifyContent: 'space-between',
-            padding: "5px"
-        }
-    }>{item.q}
-    <button className="btn btn-outline-primary" onClick={()=>setOpen(!isOpen)}>{isOpen? "-":"+"}</button></h3>
-   <p>{isOpen && item.a}</p>
-    </div>
+    <Accordion>
+      <Accordion.Header>{item.q}</Accordion.Header>
+      <Accordion.Body style={{backgroundColor:"white"}}>{item.a}</Accordion.Body>
+    </Accordion>
     </>
 
 }

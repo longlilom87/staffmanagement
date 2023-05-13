@@ -1,4 +1,5 @@
 import Question from "./Question"
+
 import "./question.css"
 export default function Guide(){
     const questions = [
@@ -22,5 +23,6 @@ export default function Guide(){
     <div className="bigContainer">
         {questions.map((question)=> <Question className="item" item={question}/>)}
     </div>
+    
     </>
 }

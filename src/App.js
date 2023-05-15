@@ -9,22 +9,19 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand">COMPANY PORTAL</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      
+        <a class="navbar-brand">COMPANY PORTAL</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
       {/* <a class="nav-item nav-link disabled" href="#">Disabled</a> */}
       <Link className="nav-item nav-link active" to="/">Home</Link>
-      <Link className="nav-item nav-link " to="/guide">Guide</Link>
-
-      
+      <Link className="nav-item nav-link " to="/guide">Guide</Link>  
+      </div>
     </div>
-  </div>
 </nav>
-<Routes>
+      <Routes>
         <Route path="/" element={<Home/>}></Route>
         <Route path="guide" element={<Guide/>}></Route>
       </Routes>

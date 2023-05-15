@@ -1,5 +1,17 @@
+import { useState } from "react"
+
 export default function Home(){
+  const [searchValue, setSearch]= useState("")
+
     return <>
+    <div className="row">
+        <div className="input-group col-md-4" style={{maxWidth: '20%'}}>
+            <input className="form-control py-2 border-right-0 border" 
+            type="search" 
+            value={searchValue} onChange={(e)=>setSearch(e.target.value)}
+            id="example-search-input"/>
+        </div>
+    </div>
     <table class="table">
   <caption>List of users</caption>
   <thead>

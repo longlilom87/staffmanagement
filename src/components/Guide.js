@@ -7,7 +7,7 @@ export default function Guide(){
           id: 1,
           q: "How to search for staffs",
           a:
-            "Click on the search box to search for employees. Then press enter to get the results"
+            "Click on the search box to search for employees. The results will automatically appear."
         },
         {
           id: 2,

@@ -1,10 +1,28 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 export default function Home(){
   const [searchValue, setSearch]= useState("")
+  const [users,setUsers]=useState([])
+  const [userResult, setResult]= useState([])
 
+  useEffect(()=>{
+    fetch("https://reqres.in/api/users?page=2")
+    .then((response)=>response.json())
+    .then((json)=>{
+      setUsers(json.data)
+      // console.log(json.data)
+    })
+    .catch((error)=>console.log(error))
+  })
+
+  useEffect(()=>{
+    if (users){
+      setResult(users.filter(user=>user.first_name.startsWith(searchValue)))
+    }
+  })
     return <>
-    <div className="row">
+    
+    <div className="row" style={{padding: '10px'}}>
         <div className="input-group col-md-4" style={{maxWidth: '20%'}}>
             <input className="form-control py-2 border-right-0 border" 
             type="search" 
@@ -12,7 +30,7 @@ export default function Home(){
             id="example-search-input"/>
         </div>
     </div>
-    <table class="table">
+    <table className="table"style={{margin:'auto',width:'80%'}}>
   <caption>List of users</caption>
   <thead>
     <tr>
@@ -23,24 +41,12 @@ export default function Home(){
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    {userResult && userResult.map(user =><tr>
+      <th scope="row">{user.id}</th>
+      <td>{user.first_name}</td>
+      <td>{user.last_name}</td>
+      <td>{user.email}</td>
+    </tr>)}
   </tbody>
 </table>
     </>
